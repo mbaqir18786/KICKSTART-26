@@ -21,7 +21,7 @@
             --accent: #f59e0b;
             --accent-glow: rgba(245, 158, 11, 0.4);
             --text-main: #ffffff;
-            --text-muted: #a1a1aa;
+            --text-muted: #f8f8f8;
             --border: rgba(255,255,255,0.08);
             --ease: cubic-bezier(0.19, 1, 0.22, 1);
             --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -33,7 +33,7 @@
             --surface: #12101f;
             --surface-light: #1a1730;
             --text-main: #e8e6f0;
-            --text-muted: #9f9ca8;
+            --text-muted: #bab6b6;
             --border: rgba(139, 133, 160, 0.12);
             --primary: #7c3aed;
             --primary-glow: rgba(124, 58, 237, 0.4);
@@ -411,7 +411,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 24px;
+            padding: 14px 27px;
             background: rgba(245, 158, 11, 0.1);
             border: 1px solid rgba(245, 158, 11, 0.3);
             border-radius: 100px;
@@ -966,7 +966,7 @@
             font-size: 3.5rem;
             font-weight: 700;
             color: white;
-            opacity: 0.05;
+            opacity: 0.55;
             line-height: 1;
         }
 
@@ -1138,7 +1138,7 @@
 
         .tickets-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns:1fr;
             gap: 1.2rem;
             margin-top: 2.5rem;
         }
@@ -1291,6 +1291,7 @@
 
         /* DESKTOP STYLES */
         @media (min-width: 769px) {
+            
             .hero-title {
                 font-size: clamp(4rem, 12vw, 7.8rem);
                 letter-spacing: -4px;
@@ -1334,12 +1335,18 @@
             .about-grid {
                 grid-template-columns: 1.3fr 1fr;
             }
+         
         }
 
         /* TABLET & MOBILE */
         @media (max-width: 992px) {
             .header-nav { display: none; }
             .menu-btn { display: flex; }
+               .ticket-card .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
         }
 
         @media (max-width: 768px) {
@@ -1573,7 +1580,7 @@
             <h1 class="hero-title">
                 <span class="line">
                     <span class="line-inner">
-                        <span class="text-white">KICK</span><span class="text-gradient">START</span>
+                        <span class="text-white">KICK</span><span class="text-gradient">START&nbsp;'</span>
                     </span>
                     <span class="line-inner">
                         <span class="text-white">&nbsp;26</span>
