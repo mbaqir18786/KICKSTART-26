@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>KICKSTART '26 | KJSCE Alumni Cell</title>
+    <title>KICKSTART '26 | KJSSE Alumni Cell</title>
     
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
     
@@ -183,14 +183,6 @@
         .btn-primary:hover { color: var(--bg); border-color: var(--accent); }
         .btn-glow { box-shadow: 0 0 30px var(--primary-glow); }
         .btn-glow:hover { box-shadow: 0 0 40px var(--accent-glow); }
-
-        .btn-townscript {
-            background: linear-gradient(135deg, #00d09c, #00b386);
-            border-color: #00d09c;
-            color: white;
-        }
-        .btn-townscript::before { background: var(--accent); }
-        .btn-townscript:hover { border-color: var(--accent); }
 
         /* HEADER */
         .header {
@@ -1133,13 +1125,13 @@
             color: rgba(255,255,255,0.7);
         }
 
-        /* TICKETS */
+        /* TICKETS - IMPROVED */
         .tickets { padding: 5rem 0; }
 
         .tickets-grid {
             display: grid;
-            grid-template-columns:1fr;
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
             margin-top: 2.5rem;
         }
 
@@ -1147,10 +1139,9 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 1.8rem;
+            padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
-            min-height: 340px;
             position: relative;
             transition: all 0.5s var(--ease);
         }
@@ -1166,11 +1157,16 @@
             background: linear-gradient(135deg, var(--surface), rgba(37, 99, 235, 0.08));
         }
 
+        .ticket-card.featured:hover {
+            border-color: var(--accent);
+            box-shadow: 0 30px 60px rgba(37, 99, 235, 0.2);
+        }
+
         .ticket-badge {
             position: absolute;
             top: 12px;
             right: 12px;
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+            background: linear-gradient(135deg, #22c55e, #16a34a);
             color: white;
             font-size: 0.55rem;
             font-weight: 700;
@@ -1179,13 +1175,19 @@
             letter-spacing: 1px;
         }
 
-        .ticket-card h4 { font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 0.5rem; }
+        .ticket-card h4 { 
+            font-size: 0.75rem; 
+            letter-spacing: 1.5px; 
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+        }
 
         .ticket-price {
             font-family: 'Clash Display', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin: 0.5rem 0;
+            margin: 0.5rem 0 1rem;
+            line-height: 1;
         }
 
         .ticket-price.primary {
@@ -1195,18 +1197,36 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .ticket-desc { font-size: 0.85rem; color: var(--text-muted); }
-        .ticket-divider { height: 1px; background: var(--border); margin: 1rem 0; }
-        .ticket-type { font-size: 0.8rem; color: var(--text-muted); margin-bottom: auto; }
-
-        .ticket-card .btn {
-            margin-top: 1.2rem;
-            width: 100%;
-            padding: 0.9rem;
-            font-size: 0.75rem;
+        .ticket-desc { 
+            font-size: 0.9rem; 
+            color: var(--text-muted); 
+            line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
-        .ticket-card .btn.disabled { opacity: 0.5; pointer-events: none; }
+        .ticket-divider { 
+            height: 1px; 
+            background: var(--border); 
+            margin: 1rem 0; 
+        }
+
+        .ticket-type { 
+            font-size: 0.8rem; 
+            color: var(--accent); 
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .ticket-card .btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+        }
 
         /* SPONSORS */
         .sponsors { padding: 4rem 0; overflow: hidden; }
@@ -1254,6 +1274,276 @@
         @keyframes sponsorScroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
+        }
+
+        /* SPONSORS SECTION TITLE */
+        .sponsors .section-header {
+            text-align: center;
+        }
+
+        .sponsors .section-title {
+            line-height: 1.2;
+        }
+
+        .sponsors .section-title .text-gradient {
+            background: linear-gradient(135deg, var(--accent) 0%, #fcd34d 30%, var(--accent) 60%, #fbbf24 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: goldShift 4s ease infinite;
+        }
+
+        .sponsors .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 0.8rem;
+            font-weight: 400;
+        }
+
+        /* REGISTRATION MODAL */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--ease);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-container {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9) translateY(30px);
+            transition: all 0.5s var(--ease-out-back);
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-header {
+            padding: 2rem 2rem 0;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s var(--ease);
+        }
+
+        .modal-close:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        .modal-close svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .modal-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 100px;
+            color: var(--accent);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .modal-tag-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+
+        .modal-title {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--text-main), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .modal-body {
+            padding: 1.5rem 2rem 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-family: 'Satoshi', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s var(--ease);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-family: 'Satoshi', sans-serif;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-glow);
+        }
+
+        .form-select option {
+            background: var(--surface);
+            color: var(--text-main);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.1rem;
+            margin-top: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), #1d4ed8);
+            border: none;
+            border-radius: 100px;
+            color: white;
+            font-family: 'Clash Display', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s var(--ease);
+        }
+
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent), #fbbf24);
+            opacity: 0;
+            transition: opacity 0.4s var(--ease);
+        }
+
+        .form-submit:hover::before {
+            opacity: 1;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--accent-glow);
+        }
+
+        .form-submit span {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .form-submit:hover span {
+            color: var(--bg);
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            opacity: 0.7;
         }
 
         /* FOOTER */
@@ -1329,7 +1619,8 @@
             }
             
             .tickets-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1.2rem;
             }
             
             .about-grid {
@@ -1338,15 +1629,40 @@
          
         }
 
+        /* LARGE DESKTOP */
+        @media (min-width: 1200px) {
+            .tickets-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        /* MEDIUM DESKTOP */
+        @media (min-width: 993px) and (max-width: 1199px) {
+            .tickets-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         /* TABLET & MOBILE */
         @media (max-width: 992px) {
             .header-nav { display: none; }
             .menu-btn { display: flex; }
-               .ticket-card .card-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-}
+            
+            .tickets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .ticket-card {
+                padding: 1.5rem;
+            }
+            
+            .ticket-price {
+                font-size: 2.4rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1445,16 +1761,43 @@
             }
             
             /* TICKETS MOBILE */
+            .tickets-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .ticket-card {
+                padding: 1.8rem;
+            }
+            
             .ticket-card h4 {
                 font-size: 0.8rem;
             }
             
             .ticket-price {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .ticket-desc {
                 font-size: 0.9rem;
+            }
+            
+            /* MODAL MOBILE */
+            .modal-container {
+                max-height: 85vh;
+                border-radius: 20px;
+            }
+            
+            .modal-header {
+                padding: 1.5rem 1.5rem 0;
+            }
+            
+            .modal-body {
+                padding: 1.2rem 1.5rem 1.5rem;
+            }
+            
+            .modal-title {
+                font-size: 1.6rem;
             }
             
             .footer-links { gap: 1.5rem; }
@@ -1503,10 +1846,9 @@
             
             .ticket-card { 
                 padding: 1.5rem;
-                min-height: 300px;
             }
             
-            .ticket-price { font-size: 2rem; }
+            .ticket-price { font-size: 2.2rem; }
             
             .gallery-item {
                 width: 280px;
@@ -1519,6 +1861,10 @@
             
             .mobile-nav a {
                 font-size: 1.8rem;
+            }
+            
+            .modal-container {
+                margin: 10px;
             }
         }
 
@@ -1538,6 +1884,90 @@
     <div class="noise"></div>
     <canvas id="particles-canvas"></canvas>
 
+    <!-- REGISTRATION MODAL -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <button class="modal-close" id="modalClose">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="modal-tag">
+                    <span class="modal-tag-dot"></span>
+                    Registration Open
+                </div>
+                <h2 class="modal-title">JOIN &nbsp;KICKSTART '26</h2>
+                <p class="modal-subtitle">Fill in your details to secure your spot</p>
+            </div>
+            <div class="modal-body">
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name *</label>
+                        <input type="text" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" class="form-input" placeholder="your.email@somaiya.edu" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Year of Study *</label>
+                            <select class="form-select" required>
+                                <option value="" disabled selected>Select Year</option>
+                                <option value="FE">FY (First Year)</option>
+                                <option value="SE">SY (Second Year)</option>
+                                <option value="TE">TY (Third Year)</option>
+                                <option value="BE">LY (Final Year)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Branch / Department *</label>
+                        <select class="form-select" required>
+                            <option value="" disabled selected>Select Branch</option>
+                            <option value="CSE">AI&DS</option>
+                            <option value="IT">COMPS</option>
+                            <option value="EXTC">IT</option>
+                            <option value="ETRX">CSBS</option>
+                            <option value="MECH">CCE</option>
+                            <option value="CIVIL">RAI</option>
+                            <option value="OTHER">MECH</option>
+                            <option value="OTHER">EXTC</option>
+                            <option value="OTHER">EXCP</option>
+                            <option value="OTHER">VLSI</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Interested Domain *</label>
+                        <select class="form-select" required>
+                            <option value="" disabled selected>Select Domain</option>
+                            <option value="TECH">Tech</option>
+                            <option value="CORE">Core</option>
+                            <option value="NON-TECH">Non-Tech</option>
+                            <option value="ALL">All Domains</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="form-submit">
+                        <span>
+                            Register Now
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <p class="form-note">Questions? Reach us at <a href="mailto:alumni.engg@somaiya.edu">alumni.engg@somaiya.edu</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <header class="header">
         <div class="header-left">
             <img src="./logo-removebg-preview.png" alt="Logo" class="header-logo">
@@ -1548,7 +1978,7 @@
             <a href="#schedule">Schedule</a>
             <a href="#gallery">Gallery</a>
             <a href="#tickets">Tickets</a>
-            <a href="https://www.townscript.com" target="_blank" class="btn btn-townscript btn-glow"><span class="btn-inner">Apply through Townscript</span></a>
+            <a href="#" class="register-btn" id="openRegisterBtn">Register</a>
         </nav>
         <button class="menu-btn" aria-label="Menu">
             <span></span>
@@ -1562,7 +1992,7 @@
         <a href="#schedule">Schedule</a>
         <a href="#gallery">Gallery</a>
         <a href="#tickets">Tickets</a>
-        <a href="https://www.townscript.com" target="_blank">Apply Now</a>
+        <a href="#" class="mobile-register-btn">Register</a>
     </nav>
 
     <section class="hero">
@@ -1588,19 +2018,17 @@
                 </span>
             </h1>
             <p class="hero-subtitle">
-                A 5-day immersive placement training event by KJSSE Alumni Cell. Aptitude, GD, and PI conducted by industry veterans.
+                A 5-day immersive placement training event by Alumni Cell Alumni. Aptitude, GD, and PI conducted by industry veterans.
             </p>
             <div class="hero-cta">
-                <a href="https://www.townscript.com" target="_blank" class="btn btn-townscript btn-glow">
+                <button class="btn btn-primary btn-glow open-modal-btn">
                     <span class="btn-inner">
                         Secure Your Spot
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                            <polyline points="15 3 21 3 21 9"/>
-                            <line x1="10" y1="14" x2="21" y2="3"/>
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </span>
-                </a>
+                </button>
                 <a href="#about" class="btn">
                     <span class="btn-inner">Learn More</span>
                 </a>
@@ -1690,7 +2118,7 @@
                 <div class="timeline-item reveal">
                     <div class="timeline-date">
                         <div class="timeline-node"></div>
-                        <div class="timeline-day">04 FEB</div>
+                        <div class="timeline-day">03 FEB</div>
                         <div class="timeline-weekday">Tuesday</div>
                     </div>
                     <div class="timeline-card">
@@ -1713,7 +2141,7 @@
                 <div class="timeline-item reveal">
                     <div class="timeline-date">
                         <div class="timeline-node"></div>
-                        <div class="timeline-day">05-06 FEB</div>
+                        <div class="timeline-day">04-05 FEB</div>
                         <div class="timeline-weekday">Wed - Thu</div>
                     </div>
                     <div class="timeline-card">
@@ -1738,7 +2166,7 @@
                 <div class="timeline-item reveal">
                     <div class="timeline-date">
                         <div class="timeline-node"></div>
-                        <div class="timeline-day">08-09 FEB</div>
+                        <div class="timeline-day">08 FEB</div>
                         <div class="timeline-weekday">Sat - Sun</div>
                     </div>
                     <div class="timeline-card">
@@ -1870,40 +2298,63 @@
 
             <div class="tickets-grid">
                 <div class="ticket-card reveal reveal-delay-1">
-                    <span class="ticket-badge">SOLD OUT</span>
+                    <span class="ticket-badge">AVAILABLE</span>
                     <h4>BASIC TIER</h4>
                     <div class="ticket-price">₹30</div>
-                    <div class="ticket-desc">Aptitude + GD + 1 PI</div>
+                    <div class="ticket-desc">Aptitude + GD + 1 Personal Interview</div>
                     <div class="ticket-divider"></div>
                     <div class="ticket-type">Core / Tech / Non-Tech</div>
-                    <button class="btn disabled"><span class="btn-inner">Closed</span></button>
+                    <button class="btn btn-primary open-modal-btn">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
                 </div>
+
                 <div class="ticket-card reveal reveal-delay-2">
-                    <span class="ticket-badge">SOLD OUT</span>
+                    <span class="ticket-badge">AVAILABLE</span>
                     <h4>STANDARD TIER</h4>
                     <div class="ticket-price">₹40</div>
-                    <div class="ticket-desc">Aptitude + GD + 2 PIs</div>
+                    <div class="ticket-desc">Aptitude + GD + 2 Personal Interviews</div>
                     <div class="ticket-divider"></div>
                     <div class="ticket-type">Core + Non-Tech</div>
-                    <button class="btn disabled"><span class="btn-inner">Closed</span></button>
+                    <button class="btn btn-primary open-modal-btn">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
                 </div>
+
                 <div class="ticket-card featured reveal reveal-delay-3">
-                    <span class="ticket-badge">SOLD OUT</span>
+                    <span class="ticket-badge">POPULAR</span>
                     <h4 style="color: var(--primary);">TECH PRO</h4>
                     <div class="ticket-price primary">₹50</div>
-                    <div class="ticket-desc">Aptitude + GD + 2 PIs</div>
+                    <div class="ticket-desc">Aptitude + GD + 2 Personal Interviews</div>
                     <div class="ticket-divider"></div>
                     <div class="ticket-type">Core + Tech</div>
-                    <button class="btn btn-primary disabled"><span class="btn-inner">Closed</span></button>
+                    <button class="btn btn-primary open-modal-btn">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
                 </div>
+
                 <div class="ticket-card reveal reveal-delay-4">
-                    <span class="ticket-badge">SOLD OUT</span>
+                    <span class="ticket-badge">AVAILABLE</span>
+                    <h4>DUAL DOMAIN</h4>
+                    <div class="ticket-price">₹60</div>
+                    <div class="ticket-desc">Aptitude + GD + 2 Personal Interviews</div>
+                    <div class="ticket-divider"></div>
+                    <div class="ticket-type">Tech + Non-Tech</div>
+                    <button class="btn btn-primary open-modal-btn">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
+                </div>
+                
+                <div class="ticket-card reveal reveal-delay-4">
+                    <span class="ticket-badge">BEST VALUE</span>
                     <h4>ALL ROUNDER</h4>
                     <div class="ticket-price">₹80</div>
-                    <div class="ticket-desc">Aptitude + GD + 3 PIs</div>
+                    <div class="ticket-desc">Aptitude + GD + 3 Personal Interviews</div>
                     <div class="ticket-divider"></div>
                     <div class="ticket-type">Tech + Core + Non-Tech</div>
-                    <button class="btn disabled"><span class="btn-inner">Closed</span></button>
+                    <button class="btn btn-primary open-modal-btn">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -1912,8 +2363,9 @@
     <section class="sponsors">
         <div class="container">
             <div class="section-header reveal" style="text-align: center;">
-                <div class="section-tag" style="justify-content: center;">Backed By</div>
-                <h2 class="section-title">OUR PARTNERS</h2>
+                <div class="section-tag">Last Year's Highlights</div>
+                <h2 class="section-title">COMPANIES THAT<br><span class="text-gradient">BELIEVED IN US</span></h2>
+                <p class="section-subtitle">Industry leaders who helped shape future professionals</p>
             </div>
         </div>
 
@@ -1970,6 +2422,82 @@
         const isMobile = window.innerWidth <= 768;
         const isTouch = 'ontouchstart' in window;
 
+        // REGISTRATION MODAL FUNCTIONALITY
+        const modal = document.getElementById('registerModal');
+        const openBtn = document.getElementById('openRegisterBtn');
+        const closeBtn = document.getElementById('modalClose');
+        const mobileRegisterBtn = document.querySelector('.mobile-register-btn');
+        const registrationForm = document.getElementById('registrationForm');
+        const allOpenModalBtns = document.querySelectorAll('.open-modal-btn');
+
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Open modal from header Register button
+        if (openBtn) {
+            openBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        // Open modal from all buttons with class 'open-modal-btn' (Hero + Ticket buttons)
+        allOpenModalBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        // Open modal from mobile nav Register button
+        if (mobileRegisterBtn) {
+            mobileRegisterBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Close mobile nav first
+                document.querySelector('.menu-btn').classList.remove('active');
+                document.querySelector('.mobile-nav').classList.remove('active');
+                document.body.style.overflow = '';
+                setTimeout(openModal, 300);
+            });
+        }
+
+        // Close modal
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Form submission
+        if (registrationForm) {
+            registrationForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Here you can add your form submission logic
+                alert('Registration successful! We will contact you soon.');
+                closeModal();
+                registrationForm.reset();
+            });
+        }
+
         // Cursor - Desktop only
         if (!isTouch && !isMobile) {
             const cursor = document.querySelector('.cursor');
@@ -1994,7 +2522,7 @@
             }
             animateCursor();
 
-            document.querySelectorAll('a, button, .btn, .ticket-card, .speaker-card, .stat-card, .gallery-item, .header-logo, .menu-btn, .timeline-card').forEach(el => {
+            document.querySelectorAll('a, button, .btn, .ticket-card, .speaker-card, .stat-card, .gallery-item, .header-logo, .menu-btn, .timeline-card, .form-input, .form-select, .modal-close').forEach(el => {
                 el.addEventListener('mouseenter', () => cursor.classList.add('active'));
                 el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
             });
@@ -2022,7 +2550,7 @@
             document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
         });
 
-        mobileNav.querySelectorAll('a').forEach(link => {
+        mobileNav.querySelectorAll('a:not(.mobile-register-btn)').forEach(link => {
             link.addEventListener('click', () => {
                 menuBtn.classList.remove('active');
                 mobileNav.classList.remove('active');
@@ -2245,6 +2773,7 @@
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
