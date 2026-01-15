@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>KICKSTART '26 | KJSSE Alumni Cell</title>
     
-    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,500,600,700&f[]=satoshi@300,400,500,700&f[]=cabinet-grotesk@400,500,600,700&display=swap" rel="stylesheet">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -189,16 +189,17 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 1.2rem 5%;
+            padding: 0.8rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
             transition: all 0.4s var(--ease);
+            height: 70px;
         }
 
         .header.scrolled {
-            padding: 0.8rem 5%;
+            padding: 0.6rem 5%;
             background: rgba(3, 3, 3, 0.9);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -209,34 +210,56 @@
             background: rgba(12, 10, 26, 0.95);
         }
 
-        .header-left { display: flex; align-items: center; gap: 12px; z-index: 1001; }
+        .header-left { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            z-index: 1001;
+            flex: 1;
+        }
 
         .header-logo {
-            height: 40px;
+            height: 50px;
             width: auto;
             object-fit: contain;
             transition: transform 0.3s var(--ease);
+            max-width: 50px;
         }
         .header-logo:hover { transform: scale(1.05); }
 
         .logo-text {
             font-family: 'Clash Display', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .header-nav { display: flex; align-items: center; gap: 2.5rem; }
+        .header-nav { 
+            display: flex; 
+            align-items: center; 
+            gap: 1rem;
+            flex: 1;
+            justify-content: space-around;
+            right: 0%;
+            box-sizing: border-box;
+        }
 
         .header-nav a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-weight: 500;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             transition: all 0.3s var(--ease);
             position: relative;
             padding: 5px 0;
+            font-family: 'Cabinet Grotesk', sans-serif;
+            right: 0%;
         }
 
         .header-nav a::after {
@@ -264,6 +287,7 @@
             z-index: 1001;
             background: none;
             border: none;
+            margin-left: auto;
         }
 
         .menu-btn span {
@@ -291,6 +315,7 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.5s var(--ease);
+            top: 70px;
         }
 
         .mobile-nav::before {
@@ -334,7 +359,8 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            padding: 100px 0 120px;
+            padding: 120px 0 120px;
+            margin-top: 0;
         }
 
         .hero-bg {
@@ -430,11 +456,11 @@
         }
 
         .hero-title {
-            font-size: clamp(3.5rem, 12vw, 10rem);
+            font-size: clamp(3.5rem, 12vw, 8rem);
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
             margin-bottom: 2rem;
-            line-height: 1.1;
+            line-height: 1.05;
         }
 
         .hero-title .line {
@@ -683,12 +709,13 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-family: 'Clash Display', sans-serif;
+            font-family: 'Cabinet Grotesk', sans-serif;
             font-weight: 700;
             font-size: 0.7rem;
             letter-spacing: 2px;
             color: var(--accent);
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
         }
 
         .exclusive-label svg { width: 14px; height: 14px; }
@@ -702,6 +729,7 @@
             border-radius: 20px;
             padding: 1.8rem;
             transition: all 0.5s var(--ease);
+            overflow: hidden;
         }
 
         .stat-card:hover {
@@ -712,7 +740,7 @@
 
         .stat-number {
             font-family: 'Clash Display', sans-serif;
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-size: clamp(2.2rem, 5vw, 3rem);
             font-weight: 700;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
@@ -720,6 +748,8 @@
             -webkit-text-fill-color: transparent;
             line-height: 1;
             margin-bottom: 0.3rem;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .stat-label { font-size: 0.9rem; color: var(--text-muted); }
@@ -741,6 +771,7 @@
             margin-bottom: 0.8rem;
             text-transform: uppercase;
             font-weight: 600;
+            font-family: 'Cabinet Grotesk', sans-serif;
         }
 
         .section-tag::before {
@@ -968,7 +999,7 @@
 
         .speaker-card {
             position: relative;
-            height: 380px;
+            height: 480px;
             border-radius: 20px;
             overflow: hidden;
             background: var(--surface);
@@ -994,6 +1025,7 @@
             object-fit: cover;
             object-position: center top;
             transition: transform 0.8s var(--ease);
+            z-index: 1;
         }
 
         .speaker-card:hover .speaker-bg img {
@@ -1058,69 +1090,67 @@
             height: 16px;
         }
 
+        /* ========== CREATIVE GALLERY SECTION ========== */
         .gallery {
-            padding: 6rem 0 0;
+            padding: 6rem 0;
+            position: relative;
             overflow: hidden;
-            position: relative;
-        }
-
-        .gallery-wrapper {
-            position: relative;
         }
 
         .gallery-header {
-            margin-bottom: 2.5rem;
-            padding: 0 5%;
+            margin-bottom: 3rem;
+            text-align: center;
         }
 
         .gallery-container {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            overflow: hidden;
+            perspective: 1000px;
         }
 
-        .gallery-track {
-            display: flex;
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            padding: 2rem 5%;
-            will-change: transform;
+            margin-top: 2rem;
         }
 
         .gallery-item {
             position: relative;
-            flex-shrink: 0;
-            width: 350px;
-            height: 450px;
             border-radius: 20px;
             overflow: hidden;
+            aspect-ratio: 3/4;
+            cursor: pointer;
             transition: all 0.6s var(--ease);
+            border: 1px solid var(--border);
+            background: var(--surface);
+        }
+
+        .gallery-item:nth-child(even) {
+            transform: translateY(40px);
         }
 
         .gallery-item:hover {
-            transform: scale(1.03);
+            transform: translateY(0) scale(1.02);
             z-index: 10;
+            box-shadow: 0 30px 60px rgba(37, 99, 235, 0.2);
         }
 
         .gallery-item-inner {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            border-radius: 20px;
-            border: 1px solid var(--border);
             position: relative;
-            background: var(--surface);
+            border-radius: 20px;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1s var(--ease);
+            transition: transform 0.8s var(--ease);
         }
 
         .gallery-item:hover img {
-            transform: scale(1.15);
+            transform: scale(1.12) rotate(2deg);
         }
 
         .gallery-item-overlay {
@@ -1155,17 +1185,20 @@
 
         .gallery-item-title {
             font-family: 'Clash Display', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: white;
             text-transform: uppercase;
             margin-bottom: 0.4rem;
+            letter-spacing: 0.5px;
         }
 
         .gallery-item-desc {
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.7);
+            color: rgba(255,255,255,0.8);
         }
+
+        /* ========== END CREATIVE GALLERY SECTION ========== */
 
         .tickets { padding: 5rem 0; }
 
@@ -1269,51 +1302,10 @@
             cursor: pointer;
         }
 
-        .sponsors { padding: 4rem 0; overflow: hidden; }
-
-        .sponsors-scroll {
-            display: flex;
-            overflow: hidden;
-            mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
-            margin: 1.2rem 0;
-        }
-
-        .sponsors-track {
-            display: flex;
-            gap: 1rem;
-            animation: sponsorScroll 40s linear infinite;
-            will-change: transform;
-        }
-
-        .sponsors-track.reverse { animation-direction: reverse; }
-
-        .sponsor-item {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 0.8rem 1.5rem;
-            white-space: nowrap;
-            transition: all 0.4s var(--ease);
-        }
-
-        .sponsor-item:hover {
-            background: rgba(255,255,255,0.05);
-            border-color: var(--accent);
-            transform: scale(1.05);
-        }
-
-        .sponsor-name {
-            font-family: 'Clash Display', sans-serif;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-
-        .sponsor-item:hover .sponsor-name { color: var(--text-main); }
-
-        @keyframes sponsorScroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+        /* ========== SPONSORS SECTION - FIXED ========== */
+        .sponsors { 
+            padding: 3rem 0; 
+            overflow: hidden; 
         }
 
         .sponsors .section-header {
@@ -1322,6 +1314,7 @@
 
         .sponsors .section-title {
             line-height: 1.2;
+            
         }
 
         .sponsors .section-title .text-gradient {
@@ -1339,6 +1332,84 @@
             margin-top: 0.8rem;
             font-weight: 400;
         }
+
+        .sponsors-scroll {
+            overflow: hidden;
+            width: 100%;
+            padding: 20px 0;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .sponsors-track {
+            display: flex;
+            gap: 60px;
+            width: fit-content;
+            animation: sponsorScroll 35s linear infinite;
+        }
+
+        .sponsors-track.reverse {
+            animation: sponsorScrollReverse 35s linear infinite;
+        }
+
+        .sponsors-scroll:hover .sponsors-track {
+            animation-play-state: paused;
+        }
+
+        .sponsor-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+       .sponsor-item img {
+    height: auto;
+    max-height: 320px;    /* bigger vertical limit */
+    max-width: 320px;     /* allow wider logos */
+    width: auto;
+    object-fit:fill;
+    opacity: 1;
+    transition: all 0.4s ease;
+    border-radius: 50%;
+}
+
+        .sponsor-item img:hover {
+           
+            transform: scale(1.15);
+        }
+
+        @keyframes sponsorScroll {
+            0% { 
+                transform: translateX(0); 
+            }
+            100% { 
+                transform: translateX(calc(-50% - 30px)); 
+            }
+        }
+
+        @keyframes sponsorScrollReverse {
+            0% { 
+                transform: translateX(calc(-50% - 30px)); 
+            }
+            100% { 
+                transform: translateX(0); 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sponsors-track {
+                gap: 40px;
+                animation-duration: 25s;
+            }
+            
+            .sponsor-item img {
+                height: 140px;
+                max-width: 100px;
+            }
+        }
+        /* ========== END SPONSORS SECTION ========== */
 
         .modal-overlay {
             position: fixed;
@@ -1467,6 +1538,7 @@
             text-transform: uppercase;
             color: var(--text-muted);
             margin-bottom: 0.5rem;
+            font-family: 'Cabinet Grotesk', sans-serif;
         }
 
         .form-input {
@@ -1492,6 +1564,22 @@
             color: rgba(255, 255, 255, 0.3);
         }
 
+        .form-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+        }
+
+        .form-error {
+            font-size: 0.7rem;
+            color: #ef4444;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .form-error.show {
+            display: block;
+        }
+
         .form-select {
             width: 100%;
             padding: 1rem 1.2rem;
@@ -1508,6 +1596,7 @@
             background-repeat: no-repeat;
             background-position: right 1rem center;
             background-size: 16px;
+            padding-right: 2.5rem;
         }
 
         .form-select:focus {
@@ -1519,6 +1608,11 @@
         .form-select option {
             background: var(--surface);
             color: var(--text-main);
+        }
+
+        .form-select.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
         }
 
         .form-row {
@@ -1543,6 +1637,7 @@
             position: relative;
             overflow: hidden;
             transition: all 0.4s var(--ease);
+            text-transform: uppercase;
         }
 
         .form-submit::before {
@@ -1604,6 +1699,7 @@
             text-transform: uppercase;
             color: var(--accent);
             margin-bottom: 0.3rem;
+            font-family: 'Cabinet Grotesk', sans-serif;
         }
 
         .selected-ticket-name {
@@ -1618,6 +1714,10 @@
             font-size: 0.9rem;
             color: var(--primary);
             margin-top: 0.2rem;
+        }
+
+        .form-group.hidden {
+            display: none;
         }
 
         .footer {
@@ -1683,9 +1783,24 @@
                 left: auto;
             }
             
-            .gallery-item {
-                width: 420px;
-                height: 520px;
+            .gallery-masonry {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .gallery-item:nth-child(2n) {
+                transform: translateY(40px);
+            }
+
+            .gallery-item:nth-child(3n) {
+                transform: translateY(80px);
+            }
+
+            .gallery-item:nth-child(4n) {
+                transform: translateY(20px);
+            }
+
+            .gallery-item:hover {
+                transform: translateY(0) scale(1.03);
             }
             
             .tickets-grid {
@@ -1729,6 +1844,18 @@
             .form-row {
                 grid-template-columns: 1fr;
             }
+
+            .gallery-masonry {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item:nth-child(2n) {
+                transform: translateY(20px);
+            }
+
+            .gallery-item:nth-child(3n) {
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -1743,7 +1870,7 @@
             }
             
             .hero-title {
-                font-size: 3.2rem;
+                font-size: 2.8rem;
                 letter-spacing: -2px;
                 margin-bottom: 1.5rem;
             }
@@ -1754,7 +1881,7 @@
             }
             
             .hero-subtitle {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
                 line-height: 1.8;
                 margin-bottom: 2rem;
             }
@@ -1767,7 +1894,7 @@
             .about { padding: 5rem 0; }
             
             .about-title-main {
-                font-size: 2.8rem;
+                font-size: 2.6rem;
                 letter-spacing: -1px;
             }
             
@@ -1808,13 +1935,23 @@
             .speaker-card { height: 350px; }
             .speaker-info h3 { font-size: 1.4rem; }
             
-            .gallery-item {
-                width: 300px;
-                height: 400px;
+            .gallery-masonry {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item,
+            .gallery-item:nth-child(2n),
+            .gallery-item:nth-child(3n),
+            .gallery-item:nth-child(4n) {
+                transform: translateY(0);
+            }
+
+            .gallery-item:hover {
+                transform: scale(1.02);
             }
             
             .gallery-item-title {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .gallery-item-desc {
@@ -1880,11 +2017,11 @@
         @media (max-width: 480px) {
             .container { width: 92%; }
             
-            .header-logo { height: 34px; }
-            .logo-text { font-size: 0.8rem; }
+            .header-logo { height: 40px; max-width: 40px; }
+            .logo-text { font-size: 0.75rem; letter-spacing: 0.5px; }
             
             .hero-title {
-                font-size: 2.8rem;
+                font-size: 2.4rem;
             }
             
             .hero-title .year-sup {
@@ -1892,15 +2029,15 @@
             }
             
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
             
             .about-title-main {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .section-title {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
             }
             
             .ticket-card { 
@@ -1910,12 +2047,11 @@
             .ticket-price { font-size: 2.2rem; }
             
             .gallery-item {
-                width: 280px;
-                height: 370px;
+                aspect-ratio: 3/4;
             }
             
             .gallery-item-title {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .mobile-nav a {
@@ -1925,6 +2061,10 @@
             .modal-container {
                 margin: 10px;
             }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1933,6 +2073,7 @@
                 transition-duration: 0.01ms !important; 
             }
             .hero-gradient { animation: none; }
+            .sponsors-track { animation: none; }
         }
     </style>
 </head>
@@ -1970,15 +2111,20 @@
                     <div class="form-group">
                         <label class="form-label">Full Name *</label>
                         <input type="text" class="form-input" id="fullName" placeholder="Enter your full name" required>
+                        <div class="form-error" id="fullNameError">Please enter a valid name</div>
                     </div>
+
                     <div class="form-group">
                         <label class="form-label">Email Address *</label>
                         <input type="email" class="form-input" id="email" placeholder="your.email@somaiya.edu" required>
+                        <div class="form-error" id="emailError">Please enter a valid email</div>
                     </div>
+
                     <div class="form-row">
                         <div class="form-group">
                             <label class="form-label">Phone Number *</label>
-                            <input type="tel" class="form-input" id="phone" placeholder="+91 XXXXX XXXXX" required>
+                            <input type="tel" class="form-input" id="phone" placeholder="+91 XXXXX XXXXX" pattern="[0-9\s\-\+()]{10,}" required>
+                            <div class="form-error" id="phoneError">Please enter a valid phone number (10 digits)</div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Year of Study *</label>
@@ -1989,6 +2135,7 @@
                                 <option value="TE">TY</option>
                                 <option value="BE">LY</option>
                             </select>
+                            <div class="form-error" id="yearError">Please select a year</div>
                         </div>
                     </div>
                     
@@ -2007,6 +2154,7 @@
                             <option value="EXCP">EXCP</option>
                             <option value="VLSI">VLSI</option>
                         </select>
+                        <div class="form-error" id="branchError">Please select a branch</div>
                     </div>
                     
                     <div class="form-group">
@@ -2019,18 +2167,20 @@
                             <option value="DUAL" data-price="₹60" data-desc="Aptitude + GD + 2 PI (Tech + Non-Tech)">Dual Domain - ₹60</option>
                             <option value="ALLROUNDER" data-price="₹80" data-desc="Aptitude + GD + 3 PI (All Domains)">All Rounder - ₹80</option>
                         </select>
+                        <div class="form-error" id="ticketTypeError">Please select a ticket</div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" id="domainGroup">
                         <label class="form-label">Interested Domain *</label>
                         <select class="form-select" id="domain" required>
                             <option value="" disabled selected>Select Domain</option>
                             <option value="TECH">Tech</option>
                             <option value="CORE">Core</option>
                             <option value="NON-TECH">Non-Tech</option>
-                            <option value="ALL">All Domains</option>
                         </select>
+                        <div class="form-error" id="domainError">Please select a domain</div>
                     </div>
+
                     <button type="submit" class="form-submit">
                         <span>
                             Register Now
@@ -2048,7 +2198,7 @@
     <header class="header">
         <div class="header-left">
             <img src="./logo-removebg-preview.png" alt="Logo" class="header-logo">
-            <span class="logo-text">ALUMNI CELL KJSSE</span>
+            <span class="logo-text">Alumni Cell KJSSE</span>
         </div>
         <nav class="header-nav">
             <a href="#about">About</a>
@@ -2178,7 +2328,61 @@
             </div>
         </div>
     </section>
+<section class="sponsors">
+        <div class="container">
+            <div class="section-header reveal" style="text-align: center;">
+                <div class="section-tag">Last Year's Highlights</div>
+                <h2 class="section-title">COMPANIES THAT<br><span class="text-gradient">BELIEVED &nbsp; IN &nbsp; US</span></h2>
+                <p class="section-subtitle">Industry leaders who helped shape future professionals</p>
+            </div>
+        </div>
+        
+        <div class="sponsors-scroll">
+            <div class="sponsors-track">
+                <div class="sponsor-item"><img src="./1_20260114_222405_0000.png" alt="Sponsor 1"></div>
+                <div class="sponsor-item"><img src="./2_20260114_222405_0001.png" alt="Sponsor 2"></div>
+                <div class="sponsor-item"><img src="./3.png" alt="Sponsor 3"></div>
+                <div class="sponsor-item"><img src="./4_20260114_222405_0003.png" alt="Sponsor 4"></div>
+                <div class="sponsor-item"><img src="./5_20260114_222405_0004.png" alt="Sponsor 5"></div>
+                <div class="sponsor-item"><img src="./6_20260114_222405_0005.png" alt="Sponsor 6"></div>
+                <div class="sponsor-item"><img src="./7_20260114_222405_0006.png" alt="Sponsor 7"></div>
+                <div class="sponsor-item"><img src="./8_20260114_222405_0007.png" alt="Sponsor 8"></div>
+                <div class="sponsor-item"><img src="./9_20260114_222406_0008.png" alt="Sponsor 9"></div>
+                <div class="sponsor-item"><img src="./1_20260114_222405_0000.png" alt="Sponsor 1"></div>
+                <div class="sponsor-item"><img src="./2_20260114_222405_0001.png" alt="Sponsor 2"></div>
+                <div class="sponsor-item"><img src="./3.png" alt="Sponsor 3"></div>
+                <div class="sponsor-item"><img src="./4_20260114_222405_0003.png" alt="Sponsor 4"></div>
+                <div class="sponsor-item"><img src="./5_20260114_222405_0004.png" alt="Sponsor 5"></div>
+                <div class="sponsor-item"><img src="./6_20260114_222405_0005.png" alt="Sponsor 6"></div>
+                <div class="sponsor-item"><img src="./7_20260114_222405_0006.png" alt="Sponsor 7"></div>
+                <div class="sponsor-item"><img src="./8_20260114_222405_0007.png" alt="Sponsor 8"></div>
+                <div class="sponsor-item"><img src="./9_20260114_222406_0008.png" alt="Sponsor 9"></div>
+            </div>
+        </div>
 
+        <div class="sponsors-scroll">
+            <div class="sponsors-track reverse">
+                <div class="sponsor-item"><img src="./10.png" alt="Sponsor 10"></div>
+                <div class="sponsor-item"><img src="./11.png" alt="Sponsor 11"></div>
+                <div class="sponsor-item"><img src="./12_20260114_222406_0011.png" alt="Sponsor 12"></div>
+                <div class="sponsor-item"><img src="./13_20260114_222406_0012.png" alt="Sponsor 13"></div>
+                <div class="sponsor-item"><img src="./14_20260114_222406_0013.png" alt="Sponsor 14"></div>
+                <div class="sponsor-item"><img src="./15_20260114_222406_0014.png" alt="Sponsor 15"></div>
+                <div class="sponsor-item"><img src="./16.png" alt="Sponsor 16"></div>
+                <div class="sponsor-item"><img src="./17_20260114_222406_0016.png" alt="Sponsor 17"></div>
+                <div class="sponsor-item"><img src="./18_20260114_222406_0017.png" alt="Sponsor 18"></div>
+                <div class="sponsor-item"><img src="./10.png" alt="Sponsor 1"></div>
+                <div class="sponsor-item"><img src="./11.png" alt="Sponsor 2"></div>
+                <div class="sponsor-item"><img src="./12_20260114_222406_0011.png" alt="Sponsor 3"></div>
+                <div class="sponsor-item"><img src="./13_20260114_222406_0012.png" alt="Sponsor 13"></div>
+                <div class="sponsor-item"><img src="./14_20260114_222406_0013.png" alt="Sponsor 14"></div>
+                <div class="sponsor-item"><img src="./15_20260114_222406_0014.png" alt="Sponsor 15"></div>
+                <div class="sponsor-item"><img src="./16.png" alt="Sponsor 16"></div>
+                <div class="sponsor-item"><img src="./17_20260114_222406_0016.png" alt="Sponsor 17"></div>
+                <div class="sponsor-item"><img src="./18_20260114_222406_0017.png" alt="Sponsor 18"></div>
+            </div>
+        </div>
+    </section>
     <section id="schedule" class="schedule">
         <div class="container">
             <div class="section-header reveal">
@@ -2241,7 +2445,7 @@
                 <div class="timeline-item reveal">
                     <div class="timeline-date">
                         <div class="timeline-node"></div>
-                        <div class="timeline-day">08 FEB</div>
+                        <div class="timeline-day">07-08 FEB</div>
                         <div class="timeline-weekday">Sat - Sun</div>
                     </div>
                     <div class="timeline-card">
@@ -2266,6 +2470,7 @@
         </div>
     </section>
 
+
     <section class="speakers">
         <div class="container">
             <div class="section-header reveal">
@@ -2276,7 +2481,7 @@
             <div class="speakers-grid">
                 <div class="speaker-card reveal reveal-delay-1">
                     <div class="speaker-bg">
-                        <img src="./mentor1.jpg" alt="Gaurang Shetty" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1a1a2e, #16213e)';">
+                        <img src="./10.png" alt="Gaurang Shetty">
                     </div>
                     <div class="speaker-overlay"></div>
                     <div class="speaker-info">
@@ -2317,16 +2522,86 @@
         </div>
     </section>
 
-    <section id="gallery" class="gallery">
-        <div class="gallery-wrapper">
-            <div class="container">
-                <div class="gallery-header reveal">
-                    <div class="section-tag">Past Events</div>
-                    <h2 class="section-title">GLIMPSES</h2>
+    
+ <section id="tickets" class="tickets">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="section-tag">Pricing</div>
+                <h2 class="section-title">SECURE ACCESS</h2>
+            </div>
+
+            <div class="tickets-grid">
+                <div class="ticket-card reveal reveal-delay-1">
+                    <span class="ticket-badge">AVAILABLE</span>
+                    <h4>BASIC TIER</h4>
+                    <div class="ticket-price">₹30</div>
+                    <div class="ticket-desc">Aptitude + GD + 1 Personal Interview</div>
+                    <div class="ticket-divider"></div>
+                    <div class="ticket-type">Core / Tech / Non-Tech</div>
+                    <button class="btn btn-primary open-modal-btn" data-ticket="BASIC" data-name="Basic Tier" data-price="₹30">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
+                </div>
+
+                <div class="ticket-card reveal reveal-delay-2">
+                    <span class="ticket-badge">AVAILABLE</span>
+                    <h4>STANDARD TIER</h4>
+                    <div class="ticket-price">₹40</div>
+                    <div class="ticket-desc">Aptitude + GD + 2 Personal Interviews</div>
+                    <div class="ticket-divider"></div>
+                    <div class="ticket-type">Core + Non-Tech</div>
+                    <button class="btn btn-primary open-modal-btn" data-ticket="STANDARD" data-name="Standard Tier" data-price="₹40">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
+                </div>
+
+                <div class="ticket-card reveal reveal-delay-3">
+                    <span class="ticket-badge">POPULAR</span>
+                    <h4>TECH PRO</h4>
+                    <div class="ticket-price">₹50</div>
+                    <div class="ticket-desc">Aptitude + GD + 2 Personal Interviews</div>
+                    <div class="ticket-divider"></div>
+                    <div class="ticket-type">Core + Tech</div>
+                    <button class="btn btn-primary open-modal-btn" data-ticket="TECHPRO" data-name="Tech Pro" data-price="₹50">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
+                </div>
+
+                <div class="ticket-card reveal reveal-delay-4">
+                    <span class="ticket-badge">AVAILABLE</span>
+                    <h4>DUAL DOMAIN</h4>
+                    <div class="ticket-price">₹60</div>
+                    <div class="ticket-desc">Aptitude + GD + 2 Personal Interviews</div>
+                    <div class="ticket-divider"></div>
+                    <div class="ticket-type">Tech + Non-Tech</div>
+                    <button class="btn btn-primary open-modal-btn" data-ticket="DUAL" data-name="Dual Domain" data-price="₹60">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
+                </div>
+                
+                <div class="ticket-card reveal reveal-delay-4">
+                    <span class="ticket-badge">BEST VALUE</span>
+                    <h4>ALL ROUNDER</h4>
+                    <div class="ticket-price">₹80</div>
+                    <div class="ticket-desc">Aptitude + GD + 3 Personal Interviews</div>
+                    <div class="ticket-divider"></div>
+                    <div class="ticket-type">Tech + Core + Non-Tech</div>
+                    <button class="btn btn-primary open-modal-btn" data-ticket="ALLROUNDER" data-name="All Rounder" data-price="₹80">
+                        <span class="btn-inner">Buy Now</span>
+                    </button>
                 </div>
             </div>
+        </div>
+    </section>
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="gallery-header reveal">
+                <div class="section-tag">Past Events</div>
+                <h2 class="section-title">GLIMPSES</h2>
+            </div>
+
             <div class="gallery-container">
-                <div class="gallery-track">
+                <div class="gallery-masonry">
                     <div class="gallery-item">
                         <div class="gallery-item-inner">
                             <img src="./GD-Img-1.jpg" alt="2024 Edition">
@@ -2371,132 +2646,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gallery-item">
-                        <div class="gallery-item-inner">
-                            <img src="./apti3.HEIC" alt="Networking">
-                            <div class="gallery-item-overlay"></div>
-                            <span class="gallery-item-number">05 / 05</span>
-                            <div class="gallery-item-content">
-                                <div class="gallery-item-title">NETWORKING</div>
-                                <div class="gallery-item-desc">Building connections</div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="tickets" class="tickets">
-        <div class="container">
-            <div class="section-header reveal">
-                <div class="section-tag">Pricing</div>
-                <h2 class="section-title">SECURE ACCESS</h2>
-            </div>
-
-            <div class="tickets-grid">
-                <div class="ticket-card reveal reveal-delay-1">
-                    <span class="ticket-badge">AVAILABLE</span>
-                    <h4>BASIC TIER</h4>
-                    <div class="ticket-price">₹30</div>
-                    <div class="ticket-desc">Aptitude + GD + 1 Personal Interview</div>
-                    <div class="ticket-divider"></div>
-                    <div class="ticket-type">Core / Tech / Non-Tech</div>
-                    <button class="btn btn-primary open-modal-btn" data-ticket="BASIC" data-name="Basic Tier" data-price="₹30">
-                        <span class="btn-inner">Buy Now</span>
-                    </button>
-                </div>
-
-                <div class="ticket-card reveal reveal-delay-2">
-                    <span class="ticket-badge">AVAILABLE</span>
-                    <h4>STANDARD TIER</h4>
-                    <div class="ticket-price">₹40</div>
-                    <div class="ticket-desc">Aptitude + GD + 2 Personal Interviews</div>
-                    <div class="ticket-divider"></div>
-                    <div class="ticket-type">Core + Non-Tech</div>
-                    <button class="btn btn-primary open-modal-btn" data-ticket="STANDARD" data-name="Standard Tier" data-price="₹40">
-                        <span class="btn-inner">Buy Now</span>
-                    </button>
-                </div>
-
-                <div class="ticket-card  reveal reveal-delay-3">
-                    <span class="ticket-badge">POPULAR</span>
-                    <h4 >TECH PRO</h4>
-                    <div class="ticket-price ">₹50</div>
-                    <div class="ticket-desc">Aptitude + GD + 2 Personal Interviews</div>
-                    <div class="ticket-divider"></div>
-                    <div class="ticket-type">Core + Tech</div>
-                    <button class="btn btn-primary open-modal-btn" data-ticket="TECHPRO" data-name="Tech Pro" data-price="₹50">
-                        <span class="btn-inner">Buy Now</span>
-                    </button>
-                </div>
-
-                <div class="ticket-card reveal reveal-delay-4">
-                    <span class="ticket-badge">AVAILABLE</span>
-                    <h4>DUAL DOMAIN</h4>
-                    <div class="ticket-price">₹60</div>
-                    <div class="ticket-desc">Aptitude + GD + 2 Personal Interviews</div>
-                    <div class="ticket-divider"></div>
-                    <div class="ticket-type">Tech + Non-Tech</div>
-                    <button class="btn btn-primary open-modal-btn" data-ticket="DUAL" data-name="Dual Domain" data-price="₹60">
-                        <span class="btn-inner">Buy Now</span>
-                    </button>
-                </div>
-                
-                <div class="ticket-card reveal reveal-delay-4">
-                    <span class="ticket-badge">BEST VALUE</span>
-                    <h4>ALL ROUNDER</h4>
-                    <div class="ticket-price">₹80</div>
-                    <div class="ticket-desc">Aptitude + GD + 3 Personal Interviews</div>
-                    <div class="ticket-divider"></div>
-                    <div class="ticket-type">Tech + Core + Non-Tech</div>
-                    <button class="btn btn-primary open-modal-btn" data-ticket="ALLROUNDER" data-name="All Rounder" data-price="₹80">
-                        <span class="btn-inner">Buy Now</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="sponsors">
-        <div class="container">
-            <div class="section-header reveal" style="text-align: center;">
-                <div class="section-tag">Last Year's Highlights</div>
-                <h2 class="section-title">COMPANIES THAT<br><span class="text-gradient">BELIEVED &nbsp; IN &nbsp; US</span></h2>
-                <p class="section-subtitle">Industry leaders who helped shape future professionals</p>
-            </div>
-        </div>
-
-        <div class="sponsors-scroll">
-            <div class="sponsors-track">
-                <div class="sponsor-item"><span class="sponsor-name">ALUMNI CELL</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">riidl</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">SOMAIYA</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">TRUST</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">STARTUP INDIA</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">MAKER MELA</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">TECHNOVA</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">ALUMNI CELL</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">riidl</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">SOMAIYA</span></div>
-            </div>
-        </div>
-
-        <div class="sponsors-scroll">
-            <div class="sponsors-track reverse">
-                <div class="sponsor-item"><span class="sponsor-name">GOOGLE</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">MICROSOFT</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">ACCENTURE</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">DELOITTE</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">J.P. MORGAN</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">TATA</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">INFOSYS</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">GOOGLE</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">MICROSOFT</span></div>
-                <div class="sponsor-item"><span class="sponsor-name">ACCENTURE</span></div>
-            </div>
-        </div>
-    </section>
+   
 
     <footer class="footer">
         <div class="container">
@@ -2530,6 +2686,8 @@
         const selectedTicketDisplay = document.getElementById('selectedTicketDisplay');
         const selectedTicketName = document.getElementById('selectedTicketName');
         const selectedTicketPrice = document.getElementById('selectedTicketPrice');
+        const domainGroup = document.getElementById('domainGroup');
+        const domainSelect = document.getElementById('domain');
 
         function openModal(ticketValue, ticketName, ticketPrice) {
             modal.classList.add('active');
@@ -2540,15 +2698,38 @@
                 selectedTicketDisplay.classList.add('visible');
                 selectedTicketName.textContent = ticketName;
                 selectedTicketPrice.textContent = ticketPrice;
+                ticketTypeSelect.disabled = true;
+                ticketTypeSelect.style.opacity = '0.6';
+                ticketTypeSelect.style.cursor = 'not-allowed';
+                updateDomainVisibility(ticketValue);
             } else {
                 selectedTicketDisplay.classList.remove('visible');
+                ticketTypeSelect.disabled = false;
+                ticketTypeSelect.style.opacity = '1';
+                ticketTypeSelect.style.cursor = 'pointer';
                 ticketTypeSelect.value = '';
+                domainGroup.classList.add('hidden');
+            }
+        }
+
+        function updateDomainVisibility(ticketValue) {
+            if (ticketValue === 'BASIC') {
+                domainGroup.classList.remove('hidden');
+            } else {
+                domainGroup.classList.add('hidden');
+                domainSelect.value = '';
             }
         }
 
         function closeModal() {
             modal.classList.remove('active');
             document.body.style.overflow = '';
+            registrationForm.reset();
+            selectedTicketDisplay.classList.remove('visible');
+            ticketTypeSelect.disabled = false;
+            ticketTypeSelect.style.opacity = '1';
+            ticketTypeSelect.style.cursor = 'pointer';
+            domainGroup.classList.add('hidden');
         }
 
         allOpenModalBtns.forEach(btn => {
@@ -2567,8 +2748,10 @@
                 selectedTicketDisplay.classList.add('visible');
                 selectedTicketName.textContent = selectedOption.text.split(' - ')[0];
                 selectedTicketPrice.textContent = selectedOption.getAttribute('data-price');
+                updateDomainVisibility(this.value);
             } else {
                 selectedTicketDisplay.classList.remove('visible');
+                domainGroup.classList.add('hidden');
             }
         });
 
@@ -2588,23 +2771,91 @@
             }
         });
 
+        function validatePhone(phone) {
+            const phoneRegex = /^[\d\s\-\+()]{10,}$/;
+            return phoneRegex.test(phone.replace(/\s/g, ''));
+        }
+
+        function clearErrors() {
+            document.querySelectorAll('.form-error').forEach(error => {
+                error.classList.remove('show');
+            });
+            document.querySelectorAll('.form-input, .form-select').forEach(input => {
+                input.classList.remove('error');
+            });
+        }
+
         if (registrationForm) {
             registrationForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                const formData = {
-                    fullName: document.getElementById('fullName').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    year: document.getElementById('year').value,
-                    branch: document.getElementById('branch').value,
-                    ticketType: document.getElementById('ticketType').value,
-                    domain: document.getElementById('domain').value
-                };
-                console.log('Registration Data:', formData);
-                alert('Registration successful! We will contact you soon.\n\nTicket: ' + formData.ticketType);
-                closeModal();
-                registrationForm.reset();
-                selectedTicketDisplay.classList.remove('visible');
+                clearErrors();
+                
+                const fullName = document.getElementById('fullName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const year = document.getElementById('year').value;
+                const branch = document.getElementById('branch').value;
+                const ticketType = document.getElementById('ticketType').value;
+                const domain = document.getElementById('domain').value;
+
+                let isValid = true;
+
+                if (!fullName || fullName.length < 2) {
+                    document.getElementById('fullNameError').classList.add('show');
+                    document.getElementById('fullName').classList.add('error');
+                    isValid = false;
+                }
+
+                if (!email || !email.includes('@')) {
+                    document.getElementById('emailError').classList.add('show');
+                    document.getElementById('email').classList.add('error');
+                    isValid = false;
+                }
+
+                if (!validatePhone(phone)) {
+                    document.getElementById('phoneError').classList.add('show');
+                    document.getElementById('phone').classList.add('error');
+                    isValid = false;
+                }
+
+                if (!year) {
+                    document.getElementById('yearError').classList.add('show');
+                    document.getElementById('year').classList.add('error');
+                    isValid = false;
+                }
+
+                if (!branch) {
+                    document.getElementById('branchError').classList.add('show');
+                    document.getElementById('branch').classList.add('error');
+                    isValid = false;
+                }
+
+                if (!ticketType) {
+                    document.getElementById('ticketTypeError').classList.add('show');
+                    document.getElementById('ticketType').classList.add('error');
+                    isValid = false;
+                }
+
+                if (ticketType === 'BASIC' && !domain) {
+                    document.getElementById('domainError').classList.add('show');
+                    document.getElementById('domain').classList.add('error');
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    const formData = {
+                        fullName: fullName,
+                        email: email,
+                        phone: phone,
+                        year: year,
+                        branch: branch,
+                        ticketType: ticketType,
+                        domain: ticketType === 'BASIC' ? domain : 'N/A'
+                    };
+                    console.log('Registration Data:', formData);
+                    alert('Registration successful! We will contact you soon.\n\nTicket: ' + formData.ticketType + '\nEmail: ' + formData.email);
+                    closeModal();
+                }
             });
         }
 
@@ -2710,64 +2961,6 @@
             });
         });
 
-        function initGallery() {
-            const wrapper = document.querySelector('.gallery-wrapper');
-            const track = document.querySelector('.gallery-track');
-            const section = document.querySelector('.gallery');
-            
-            if (!wrapper || !track || !section) return;
-
-            ScrollTrigger.getAll().forEach(t => {
-                if (t.vars && t.vars.trigger === section) t.kill();
-            });
-
-            gsap.set(track, { x: 0 });
-
-            const trackWidth = track.scrollWidth;
-            const windowWidth = window.innerWidth;
-            const distance = trackWidth - windowWidth + 100;
-            
-            if (distance <= 0) return;
-
-            gsap.to(track, {
-                x: -distance,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top top',
-                    end: () => '+=' + distance,
-                    pin: wrapper,
-                    pinSpacing: true,
-                    scrub: 0.5,
-                    invalidateOnRefresh: true,
-                    anticipatePin: 1,
-                    fastScrollEnd: true,
-                    preventOverlaps: true
-                }
-            });
-        }
-
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                initGallery();
-                ScrollTrigger.refresh();
-            }, 500);
-        });
-
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                ScrollTrigger.getAll().forEach(t => {
-                    if (t.trigger && t.trigger.classList && t.trigger.classList.contains('gallery')) {
-                        t.kill();
-                    }
-                });
-                initGallery();
-                ScrollTrigger.refresh();
-            }, 400);
-        });
-
         document.querySelectorAll('.stat-number[data-count]').forEach(counter => {
             const target = parseInt(counter.getAttribute('data-count'));
             ScrollTrigger.create({
@@ -2778,7 +2971,9 @@
                     gsap.to(counter, {
                         duration: 2,
                         ease: 'power2.out',
-                        onUpdate: function() { counter.textContent = Math.floor(target * this.progress()) + '+'; }
+                        onUpdate: function() { 
+                            counter.textContent = Math.floor(target * this.progress()) + '+'; 
+                        }
                     });
                 }
             });
@@ -2881,7 +3076,7 @@
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const offset = isMobile ? 60 : 80;
+                    const offset = isMobile ? 80 : 100;
                     const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                     
                     gsap.to(window, {
