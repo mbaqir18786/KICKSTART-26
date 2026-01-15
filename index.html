@@ -1373,15 +1373,15 @@
         }
 
        .sponsor-item img {
-    height: auto;
-    max-height: 320px;    /* bigger vertical limit */
-    max-width: 320px;     /* allow wider logos */
-    width: auto;
-    object-fit:fill;
-    opacity: 1;
-    transition: all 0.4s ease;
-    border-radius: 50%;
-}
+            height: auto;
+            max-height: 320px;    /* bigger vertical limit */
+            max-width: 320px;     /* allow wider logos */
+            width: auto;
+            object-fit:fill;
+            opacity: 1;
+            transition: all 0.4s ease;
+            border-radius: 50%;
+        }
 
         .sponsor-item img:hover {
            
@@ -1406,17 +1406,6 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .sponsors-track {
-                gap: 29px;
-                animation-duration: 25s;
-            }
-            
-            .sponsor-item img {
-                height: 149px;
-                max-width: 100px;
-            }
-        }
         /* ========== END SPONSORS SECTION ========== */
 
         .modal-overlay {
@@ -1759,6 +1748,101 @@
         .reveal-delay-3 { transition-delay: 0.3s !important; }
         .reveal-delay-4 { transition-delay: 0.4s !important; }
 
+
+        /* ========== SUCCESS MODAL STYLES ========== */
+        .success-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 11000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s var(--ease), visibility 0s 0.4s;
+        }
+
+        .success-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.4s var(--ease);
+        }
+
+        .success-container {
+            text-align: center;
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.5s var(--ease-out-back);
+        }
+
+        .success-overlay.active .success-container {
+            transform: scale(1);
+            opacity: 1;
+            transition-delay: 0.2s;
+        }
+
+        .success-title {
+            font-family: 'Clash Display', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #4ade80;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-subtitle {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .checkmark {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 3;
+            stroke-miterlimit: 10;
+            margin: 0 auto;
+        }
+
+        .checkmark__circle {
+            stroke-dasharray: 157;
+            stroke-dashoffset: 157;
+            stroke-width: 3;
+            stroke-miterlimit: 10;
+            stroke: #4ade80;
+            fill: none;
+        }
+
+        .success-overlay.active .checkmark__circle {
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) 0.3s forwards;
+        }
+
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            stroke-width: 4;
+            stroke: #4ade80;
+        }
+
+        .success-overlay.active .checkmark__check {
+            animation: stroke 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        /* ========== END SUCCESS MODAL STYLES ========== */
+
         @media (min-width: 769px) {
             .hero-title {
                 font-size: clamp(4rem, 12vw, 7.8rem);
@@ -2020,6 +2104,22 @@
                 width: 150px;
                 height: 150px;
             }
+             .sponsors-track {
+                gap: 29px;
+                animation-duration: 25s;
+            }
+            
+            .sponsor-item img {
+                height: 149px;
+                max-width: 100px;
+            }
+            .success-title {
+                font-size: 2rem;
+            }
+            .checkmark {
+                width: 100px;
+                height: 100px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -2109,7 +2209,7 @@
                 <p class="modal-subtitle">Fill in your details to secure your spot</p>
             </div>
             <div class="modal-body">
-                <form id="registrationForm">
+                <form id="registrationForm" novalidate>
                     <div class="selected-ticket-display" id="selectedTicketDisplay">
                         <div class="selected-ticket-label">Selected Ticket</div>
                         <div class="selected-ticket-name" id="selectedTicketName">-</div>
@@ -2178,7 +2278,7 @@
                         <div class="form-error" id="ticketTypeError">Please select a ticket</div>
                     </div>
 
-                    <div class="form-group" id="domainGroup">
+                    <div class="form-group hidden" id="domainGroup">
                         <label class="form-label">Interested Domain *</label>
                         <select class="form-select" id="domain" required>
                             <option value="" disabled selected>Select Domain</option>
@@ -2200,6 +2300,19 @@
                     <p class="form-note">Questions? Reach us at <a href="mailto:alumni.engg@somaiya.edu" style="color: var(--accent);">alumni.engg@somaiya.edu</a></p>
                 </form>
             </div>
+        </div>
+    </div>
+    
+    <div class="success-overlay" id="successModal">
+        <div class="success-container">
+            <div class="success-animation">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+            <h2 class="success-title">Registration Successful!</h2>
+            <p class="success-subtitle">Thank you for registering. We will contact you shortly with further details.</p>
         </div>
     </div>
 
@@ -2686,7 +2799,9 @@
         const isMobile = window.innerWidth <= 768;
         const isTouch = 'ontouchstart' in window;
 
+        // Modal elements
         const modal = document.getElementById('registerModal');
+        const successModal = document.getElementById('successModal');
         const closeBtn = document.getElementById('modalClose');
         const registrationForm = document.getElementById('registrationForm');
         const allOpenModalBtns = document.querySelectorAll('.open-modal-btn');
@@ -2723,8 +2838,10 @@
         function updateDomainVisibility(ticketValue) {
             if (ticketValue === 'BASIC') {
                 domainGroup.classList.remove('hidden');
+                domainSelect.required = true;
             } else {
                 domainGroup.classList.add('hidden');
+                domainSelect.required = false;
                 domainSelect.value = '';
             }
         }
@@ -2733,6 +2850,7 @@
             modal.classList.remove('active');
             document.body.style.overflow = '';
             registrationForm.reset();
+            clearErrors();
             selectedTicketDisplay.classList.remove('visible');
             ticketTypeSelect.disabled = false;
             ticketTypeSelect.style.opacity = '1';
@@ -2780,8 +2898,9 @@
         });
 
         function validatePhone(phone) {
-            const phoneRegex = /^[\d\s\-\+()]{10,}$/;
-            return phoneRegex.test(phone.replace(/\s/g, ''));
+            // Basic validation for 10+ digits, allowing for some characters
+            const phoneRegex = /^\+?[\d\s\-\(\)]{10,}/;
+            return phoneRegex.test(phone);
         }
 
         function clearErrors() {
@@ -2798,71 +2917,80 @@
                 e.preventDefault();
                 clearErrors();
                 
-                const fullName = document.getElementById('fullName').value.trim();
-                const email = document.getElementById('email').value.trim();
-                const phone = document.getElementById('phone').value.trim();
-                const year = document.getElementById('year').value;
-                const branch = document.getElementById('branch').value;
-                const ticketType = document.getElementById('ticketType').value;
-                const domain = document.getElementById('domain').value;
+                const fullName = document.getElementById('fullName');
+                const email = document.getElementById('email');
+                const phone = document.getElementById('phone');
+                const year = document.getElementById('year');
+                const branch = document.getElementById('branch');
+                const ticketType = document.getElementById('ticketType');
+                const domain = document.getElementById('domain');
 
                 let isValid = true;
 
-                if (!fullName || fullName.length < 2) {
+                if (!fullName.value.trim() || fullName.value.length < 2) {
                     document.getElementById('fullNameError').classList.add('show');
-                    document.getElementById('fullName').classList.add('error');
+                    fullName.classList.add('error');
                     isValid = false;
                 }
 
-                if (!email || !email.includes('@')) {
+                if (!email.checkValidity() || !email.value.includes('@')) {
                     document.getElementById('emailError').classList.add('show');
-                    document.getElementById('email').classList.add('error');
+                    email.classList.add('error');
                     isValid = false;
                 }
 
-                if (!validatePhone(phone)) {
+                if (!validatePhone(phone.value.trim())) {
                     document.getElementById('phoneError').classList.add('show');
-                    document.getElementById('phone').classList.add('error');
+                    phone.classList.add('error');
                     isValid = false;
                 }
 
-                if (!year) {
+                if (!year.value) {
                     document.getElementById('yearError').classList.add('show');
-                    document.getElementById('year').classList.add('error');
+                    year.classList.add('error');
                     isValid = false;
                 }
 
-                if (!branch) {
+                if (!branch.value) {
                     document.getElementById('branchError').classList.add('show');
-                    document.getElementById('branch').classList.add('error');
+                    branch.classList.add('error');
                     isValid = false;
                 }
 
-                if (!ticketType) {
+                if (!ticketType.value) {
                     document.getElementById('ticketTypeError').classList.add('show');
-                    document.getElementById('ticketType').classList.add('error');
+                    ticketType.classList.add('error');
                     isValid = false;
                 }
 
-                if (ticketType === 'BASIC' && !domain) {
+                if (ticketType.value === 'BASIC' && !domain.value) {
                     document.getElementById('domainError').classList.add('show');
-                    document.getElementById('domain').classList.add('error');
+                    domain.classList.add('error');
                     isValid = false;
                 }
 
                 if (isValid) {
                     const formData = {
-                        fullName: fullName,
-                        email: email,
-                        phone: phone,
-                        year: year,
-                        branch: branch,
-                        ticketType: ticketType,
-                        domain: ticketType === 'BASIC' ? domain : 'N/A'
+                        fullName: fullName.value.trim(),
+                        email: email.value.trim(),
+                        phone: phone.value.trim(),
+                        year: year.value,
+                        branch: branch.value,
+                        ticketType: ticketType.value,
+                        domain: ticketType.value === 'BASIC' ? domain.value : 'N/A'
                     };
                     console.log('Registration Data:', formData);
-                    alert('Registration successful! We will contact you soon.\n\nTicket: ' + formData.ticketType + '\nEmail: ' + formData.email);
+
+                    // 1. Close the registration form modal
                     closeModal();
+
+                    // 2. Show the success animation modal
+                    successModal.classList.add('active');
+
+                    // 3. Hide the success modal after a delay
+                    setTimeout(() => {
+                        successModal.classList.remove('active');
+                    }, 5000); // Hide after 5 seconds
                 }
             });
         }
